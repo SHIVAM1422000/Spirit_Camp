@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style type="text/css">
+	
+	#Container{
+		position:relative;
+		left:15%;
+		top:40px;
+	}
+	
+	</style>
+</head>
+<body>
+
+<div id="Container" class="container">
+
+	<h1 class="text-success mb-4">
+
+	Welcome To Comment Edit Form
+</h1>
+<div class="row">
+
+<form action="/campgrounds/<%=cgs%>/comment?_method=PUT" method="POST">
+	<div>
+<input type="text" class="border border-dark  p-2 ml-3" name="comment" value="<%=comment.text%>" >
+	<input type="hidden" class="border border-dark  p-2"  name="commentid" value="<%=comment._id%>" >	
+		<input type="hidden" class="border border-dark  p-2"  name="author" value="<%=comment.author%>">	
+	</div>
+
+<div clas="row">
+	<button class="btn btn-outline-info mt-3 ml-3 btn-sm">
+		Update Comment
+	</button>
+	</div>
+
+	</form>
+	</div>
+<!-- //***** -->
+	<!-- ***************************** -->
+		
+	<form action="/campgrounds/<%=cgs%>/comment/<%=comment._id%>?_method=DELETE" method="POST">
+		<button  class="btn btn-danger mt-3">Delete Comment</button>
+	</form>
+	
+	<!-- ************************** -->
+<form action="/campgrounds/">
+	<button class="btn btn-warning mt-3">Back To Campground Page..!!!!</button>
+</form>
+	</div>
+	</body>
+</html>
+<!-- ************************************ -->

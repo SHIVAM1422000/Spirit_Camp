@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Campgrounds</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<style type="text/css">
+		body{
+			background-color:whitesmoke;
+		}
+		
+.img-thumbnail{
+			height:200px;
+			width:300px;
+		}
+		
+		
+.jumbotron{
+ 
+			background: url(https://images.unsplash.com/photo-1500674425229-f692875b0ab7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+ 
+  background-size: cover;
+						
+
+			color:white;
+			
+		
+}
+		
+		
+</style>
+</head>
+
+<body>
+	<!-- navbar -->
+	<div class="container"> 
+<nav class="navbar  navbar-expand-lg navbar-light bg-dark mb-3 p-2">
+  <a class="navbar-brand text-white ml-2" href="/">SpiritCamp</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav"> 
+	 
+    <ul class="navbar-nav ml-auto">
+     	<%if(!currentUser){%>
+		<li><a class="text-white" href="/login">Login</a></li>
+		<li><a class="text-white ml-3 mr-2" href="/register">SignUp</a></li>
+		<%}else{%>
+		<li><a class="text-white"  href="#">Signed In As: <span class="font-weight-bold text-warning"><%=currentUser.username%></span> </a></li>
+		<li><a class="text-white ml-3 mr-2" href="/logout">LogOut</a></li>
+		<%}%>
+    </ul>
+  </div>
+</nav>
+	</div>
+	<!-- ******************************************* -->
+	
+		
+<!-- *** -->
+	<div class="container mt-0">
+	
+		<div  class="jumbotron">
+		<h1>Welcome to the SpiritCharger..!!</h1>
+			<p>
+				Your one and only destination for planing your holiday destination..!!
+				<!-- You will get detailed review of the pilgrimaged and where to stay. -->
+			</p>
+	</div>
+	
+	
+		
+		<!-- image section-->
+		
+			
+<%=currentUser%>
+
+<div class="row">
+	<% campgrounds.forEach(function(cgs){%>
+	<div class="col-lg-4 col-sm-6 mt-3">
+<image  class="img-thumbnail border border-dark p-1" src="<%=cgs.image%>"></image>
+		<h4><%=cgs.name%></h4>
+		<p>
+		<a href="/campgrounds/<%=cgs._id%>" class="btn btn-outline-dark btn-sm">More Info>>
+			
+			</a>
+			</p>
+		
+	</div>
+<%})%>	
+	</div>
+		
+		
+
+	<!-- button -->
+
+<form class="mt-5 ml-2" action="/campgrounds/new">
+	<button class="btn btn-dark">
+		Add New Campground
+	</button>
+</form>
+<!-- ******-->
+
+</div>
+</body>
+</html>
+

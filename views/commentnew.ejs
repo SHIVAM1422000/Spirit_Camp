@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style type="text/css">
+	
+	#Container{
+		position:relative;
+		left:15%;
+		top:40px;
+	}
+	
+	</style>
+</head>
+<body>
+
+<div id="Container" class="container">
+
+	<h1 class="text-success mb-4">
+
+	Create A New Comment On Campground:<em><%=Cg.name%></em>
+</h1>
+<div class="row">
+
+<form action="/campgrounds/<%=Cg._id%>/comment" method="POST">
+	<div>
+<input type="text" class="border border-dark  p-2" name="text" placeholder="Text">
+	</div>
+	<div>
+<input type="hidden"  class="border border-dark mt-2 p-2" name="author" value=<%=cu.username%>>
+</div>
+
+	<div clas="row">
+	<button class="btn btn-outline-info mt-3">
+		
+		Submit Comment
+	</button>
+	</div>
+
+	</form>
+	</div>
+<!-- //***** -->
+<form action="/campgrounds/">
+	<button class="btn btn-danger mt-3">Back To Campground Page..!!!!</button>
+</form>
+	</div>
+	</body>
+</html>
+<!-- ************************************ -->
